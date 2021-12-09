@@ -78,14 +78,14 @@ const array3 = [
 ];
 
 function filterTheCat(creatures) {
-  const result = creatures.filter(creature => {
-    if(creature.type ==="cat")
+  //const result = creatures.filter(creature => {
+    //if(creature.type ==="cat")
     {
 /*       const newCreature = JSON.parse(JSON.stringify(creature));
       newCreature["note"] = "This is an amazing cat"; */
-      return creature;
+      //return true;
     }
-   });
+   //});
  
 /*   const result = [];
   for (const creature of creatures) {
@@ -94,8 +94,17 @@ function filterTheCat(creatures) {
       result.push(creature);
     }
   } */
-  result[0].note ="This is an amazing cat";
+  //result[0].note ="This is an amazing cat";
+
+/*   const result = creatures.map(creature => {
+    if (creature.type === "cat"){
+      return {...creature, note: "This is an amazing cat"};
+    }
+  }).filter(creature => creature);
   return result;
+} */
+
+  return creatures.map(creature => creature.type === "cat" ? {...creature, note: "This is an amazing cat"} : undefined).filter(creature => creature);
 }
 
 console.log(filterTheCat(array3));
